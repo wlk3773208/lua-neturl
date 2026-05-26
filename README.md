@@ -16,13 +16,5 @@ neturl-1.2-1（实际解压出的源码目录）
 
 can't find file to patch at input line 3
 No file to patch. Skipping patch.
-临时解决方案：
 
-我通过覆盖 Build/Prepare 步骤，手动控制解压过程解决了该问题。核心代码如下：
-
-makefile
-define Build/Prepare
-	mkdir -p $(PKG_BUILD_DIR)
-	rm -rf $(PKG_BUILD_DIR)/*
-	tar -C $(PKG_BUILD_DIR) --strip-components=1 -xf $(DL_DIR)/$(PKG_SOURCE)
-endef
+我做了些修改，临时解决了错误
